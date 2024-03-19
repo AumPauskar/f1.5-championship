@@ -9,18 +9,10 @@ response = requests.get(url)
 # Parse the HTML content
 soup = BeautifulSoup(response.text, 'html.parser')
 
-rows = soup.find_all('tr')
-driver_positions = []
 
 cells = soup.find_all('tr')
 values = []
 
-for row in rows:
-    # Find the <td> element with class="dark" in the row
-    driver_position = row.find('td', class_='dark')
-    if driver_position:
-        # Append the text content of the driver_position to the list
-        driver_positions.append(driver_position.text.strip())
 
 for cell in cells:
     bold_cell = cell.find('td', class_='bold')
@@ -28,5 +20,11 @@ for cell in cells:
     if bold_cell:
         values.append(cell.text.strip())
 
+# Split the string into a list of strings
+driver_list = [driver.split('\n') for driver in values]
+
+# get driver position and driver points from the list
+driver_positions = [driver[0] for driver in driver_list]
+driver_points = [driver[-1] for driver in driver_list]
 print(driver_positions)
-print(values)
+print(driver_points)
