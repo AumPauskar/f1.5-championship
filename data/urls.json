@@ -1,26 +1,121 @@
 {
-    "rnd1": "https://www.formula1.com/en/results.html/2024/races/1229/bahrain/race-result.html",
-    "rnd2": "https://www.formula1.com/en/results.html/2024/races/1230/saudi-arabia/race-result.html",
-    "rnd3": "https://www.formula1.com/en/results.html/2024/races/1231/australia.html",
-    "rnd4": "https://www.formula1.com/en/results.html/2024/races/1232/japan.html",
-    "rnd5": "https://www.formula1.com/en/results.html/2024/races/1233/china.html",
-    "rnd6": "https://www.formula1.com/en/results.html/2024/races/1234/miami.html",
-    "rnd7": "https://www.formula1.com/en/results.html/2024/races/1235/italy.html",
-    "rnd8": "https://www.formula1.com/en/results.html/2024/races/1236/monaco.html",
-    "rnd9": "https://www.formula1.com/en/results.html/2024/races/1237/canada.html",
-    "rnd10": "https://www.formula1.com/en/results.html/2024/races/1238/spain.html",
-    "rnd11": "https://www.formula1.com/en/results.html/2024/races/1239/austria.html",
-    "rnd12": "https://www.formula1.com/en/results.html/2024/races/1240/great-britain.html",
-    "rnd13": "https://www.formula1.com/en/results.html/2024/races/1241/hungary.html",
-    "rnd14": "https://www.formula1.com/en/results.html/2024/races/1242/belgium.html",
-    "rnd15": "https://www.formula1.com/en/results.html/2024/races/1243/netherlands.html",
-    "rnd16": "https://www.formula1.com/en/results.html/2024/races/1244/italy.html",
-    "rnd17": "https://www.formula1.com/en/results.html/2024/races/1245/azerbaijan.html",
-    "rnd18": "https://www.formula1.com/en/results.html/2024/races/1246/singapore.html",
-    "rnd19": "https://www.formula1.com/en/results.html/2024/races/1247/united-states.html",
-    "rnd20": "https://www.formula1.com/en/results.html/2024/races/1248/mexico.html",
-    "rnd21": "https://www.formula1.com/en/results.html/2024/races/1249/brazil.html",
-    "rnd22": "https://www.formula1.com/en/results.html/2024/races/1250/las-vegas.html",
-    "rnd23": "https://www.formula1.com/en/results.html/2024/races/1251/qatar.html",
-    "rnd24": "https://www.formula1.com/en/results.html/2024/races/1252/abu-dhabi.html"
+    "rnd1":  {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1229/bahrain/race-result.html",
+        "checkDate": "2024-03-03"
+    },
+
+    "rnd2": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1230/saudi-arabia/race-result.html",
+        "checkDate": "2024-03-10"
+    },
+
+    "rnd3": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1231/australia.html",
+        "checkDate": "2024-03-24"
+    },
+
+    "rnd4": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1232/japan.html",
+        "checkDate": "2024-03-31"
+    },
+
+    "rnd5": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1233/china.html",
+        "checkDate": "2024-04-07"
+    },
+
+    "rnd6": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1234/miami.html",
+        "checkDate": "2024-04-14"
+    },
+
+    "rnd7": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1235/italy.html",
+        "checkDate": "2024-04-21"
+    },
+
+    "rnd8": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1236/monaco.html",
+        "checkDate": "2024-04-28"
+    },
+
+    "rnd9": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1237/canada.html",
+        "checkDate": "2024-05-12"
+    },
+
+    "rnd10": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1238/spain.html",
+        "checkDate": "2024-05-26"
+    },
+
+    "rnd11": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1239/austria.html",
+        "checkDate": "2024-06-02"
+    },
+
+    "rnd12": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1240/great-britain.html",
+        "checkDate": "2024-06-16"
+    },
+
+    "rnd13": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1241/hungary.html",
+        "checkDate": "2024-06-30"
+    },
+
+    "rnd14": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1242/belgium.html",
+        "checkDate": "2024-08-25"
+    },
+
+    "rnd15": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1243/netherlands.html",
+        "checkDate": "2024-09-01"
+    },
+
+    "rnd16": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1244/italy.html",
+        "checkDate": "2024-09-08"
+    },
+
+    "rnd17": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1245/azerbaijan.html",
+        "checkDate": "2024-09-22"
+    },
+
+    "rnd18": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1246/singapore.html",
+        "checkDate": "2024-09-29"
+    },
+
+    "rnd19": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1247/united-states.html",
+        "checkDate": "2024-10-06"
+    },
+
+    "rnd20": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1248/mexico.html",
+        "checkDate": "2024-10-20"
+    },
+
+    "rnd21": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1249/brazil.html",
+        "checkDate": "2024-10-27"
+    },
+
+    "rnd22": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1250/las-vegas.html",
+        "checkDate": "2024-11-10"
+    },
+
+    "rnd23": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1251/qatar.html",
+        "checkDate": "2024-11-17"
+    },
+
+    "rnd24": {
+        "link": "https://www.formula1.com/en/results.html/2024/races/1252/abu-dhabi.html",
+        "checkDate": "2024-12-01"
+    }
 }
