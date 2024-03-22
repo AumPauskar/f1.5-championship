@@ -1,15 +1,25 @@
 {
     "rnd1": {
-        "1st": 1,
-        "2nd": 16,
-        "3rd": 63,
-        "4th": 11,
-        "5th": 4,
-        "6th": 81,
-        "7th": 14,
-        "8th": 22,
-        "9th": 44,
-        "10th": 18
+        "1": "Max Verstappen",
+        "2": "Charles Leclerc",
+        "3": "George Russell",
+        "4": "Sergio Perez",
+        "5": "Lando Norris",
+        "6": "Oscar Piastri",
+        "7": "Fernando Alonso",
+        "8": "Yuki Tsunoda",
+        "9": "Hamilton",
+        "10": "Lance Stroll",
+        "11": "Daniel Ricciardo",
+        "12": "Esteban Ocon",
+        "13": "Pierre Gasly",
+        "14": "Alexander Albon",
+        "15": "Nico Hulkenberg",
+        "16": "Logan Sargeant",
+        "17": "Zhou Guanyu",
+        "18": "Carlos Sainz",
+        "19": "Valtteri Bottas",
+        "20": "Kevin Magnussen"
     },
     "rnd2": {
     }

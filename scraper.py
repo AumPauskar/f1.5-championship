@@ -29,6 +29,10 @@ def check_date():
 
 
 def get_race_info():
+    # deletes everything in the json file
+    with open('data/drivers-championship.json', 'w') as f:
+        json.dump("",f)
+
     # URL of the webpage you want to scrape
     round_number = check_date()
     print("Latest round: ", round_number)
@@ -61,10 +65,22 @@ def get_race_info():
         driver_points = [driver[-1] for driver in driver_list]
         driver_name = [driver[3] + ' ' + driver[4] for driver in driver_list]
         driver_team = [driver[7] for driver in driver_list]
-        print(driver_positions)
-        print(driver_points)
-        print(driver_team)
-        print(driver_name)
+        # print(driver_positions)
+        # print(driver_points)
+        # print(driver_team)
+        # print(driver_name)
+
+        # ☢️☢️☢️ UNTESTED CODE ☢️☢️☢️
+        # Create a dictionary to hold the data
+        data = {f"rnd{i}": {}}
+
+        # Iterate over the positions and driver names, adding them to the dictionary
+        for position, driver_name in zip(driver_positions, driver_name):
+            data[f"rnd{i}"][position] = driver_name
+
+        # Write the dictionary to a JSON file
+        with open('data/drivers-championship.json', 'a') as f:
+            json.dump(data, f)
 
 def main():
     get_race_info()
