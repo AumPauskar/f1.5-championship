@@ -1,8 +1,33 @@
 import requests
 from bs4 import BeautifulSoup
+import json
+# check current date in indian standard time
+from datetime import datetime
+import pytz
+
+round = 1
+current_datetime = datetime.now()
+
+with open('data/urls.json', 'r') as file:
+    f1_results_url = json.load(file)
+
+def check_date():
+    global round
+    while True:
+        if round > 23:
+            break
+        if current_datetime > datetime.strptime(f1_results_url[f"rnd{round}"]["checkDate"],  "%Y-%m-%d"):
+            round += 1
+            print(round)
+        else:
+            print(datetime.strptime(f1_results_url[f"rnd{round}"]["checkDate"],  "%Y-%m-%d"))
+            break
+    return int(round-1) if (1 < round < 24) else 0
+
 
 # URL of the webpage you want to scrape
-url = 'https://www.formula1.com/en/results.html/2024/races/1229/bahrain/race-result.html'
+round_number = check_date()
+url = f1_results_url[f"rnd{round_number}"]["link"]
 
 # Send an HTTP request to the URL
 response = requests.get(url)
