@@ -1,0 +1,162 @@
+{
+    "ver": {
+        "dno": "1",
+        "fname": "Max",
+        "lname": "Verstappen",
+        "country": "Netherlands",
+        "team": "Red Bull Racing"
+    },
+
+    "per": {
+        "dno": "11",
+        "fname": "Sergio",
+        "lname": "Perez",
+        "country": "Mexico",
+        "team": "Red Bull Racing"
+    },
+
+    "ham": {
+        "dno": "44",
+        "fname": "Lewis",
+        "lname": "Hamilton",
+        "country": "United Kingdom",
+        "team": "Mercedes"
+    },
+
+    "rus": {
+        "dno": "63",
+        "fname": "George",
+        "lname": "Russell",
+        "country": "United Kingdom",
+        "team": "Mercedes"
+    },
+
+    "lec": {
+        "dno": "16",
+        "fname": "Charles",
+        "lname": "Leclerc",
+        "country": "Monaco",
+        "team": "Ferrari"
+    },
+
+    "sai": {
+        "dno": "55",
+        "fname": "Carlos",
+        "lname": "Sainz",
+        "country": "Spain",
+        "team": "Ferrari"
+    },
+
+    "nor": {
+        "dno": "4",
+        "fname": "Lando",
+        "lname": "Norris",
+        "country": "United Kingdom",
+        "team": "McLaren"
+    },
+
+    "pia": {
+        "dno": "87",
+        "fname": "Oscar",
+        "lname": "Piastri",
+        "country": "Australia",
+        "team": "McLaren"
+    },
+
+    "alo": {
+        "dno": "14",
+        "fname": "Fernando",
+        "lname": "Alonso",
+        "country": "Spain",
+        "team": "Aston Martin"
+    },
+
+    "str": {
+        "dno": "18",
+        "fname": "Lance",
+        "lname": "Stroll",
+        "country": "Canada",
+        "team": "Aston Martin"
+    },
+
+    "oco": {
+        "dno": "31",
+        "fname": "Esteban",
+        "lname": "Ocon",
+        "country": "France",
+        "team": "Alpine"
+    },
+
+    "gas": {
+        "dno": "10",
+        "fname": "Pierre",
+        "lname": "Gasly",
+        "country": "France",
+        "team": "Alpine"
+    },
+
+    "alb": {
+        "dno": "23",
+        "fname": "Alex",
+        "lname": "Albon",
+        "country": "Thailand",
+        "team": "Williams"
+    },
+
+    "sar": {
+        "dno": "2",
+        "fname": "Logan",
+        "lname": "Sargeant",
+        "country": "United States",
+        "team": "Williams"
+    },
+
+    "tsu": {
+        "dno": "22",
+        "fname": "Yuki",
+        "lname": "Tsunoda",
+        "country": "Japan",
+        "team": "RB"
+    },
+
+    "ric": {
+        "dno": "3",
+        "fname": "Daniel",
+        "lname": "Ricciardo",
+        "country": "Australia",
+        "team": "RB"
+    },
+
+    "bot": {
+        "dno": "77",
+        "fname": "Valtteri",
+        "lname": "Bottas",
+        "country": "Finland",
+        "team": "Sauber"
+    },
+
+    "zho": {
+        "dno": "47",
+        "fname": "Zhou",
+        "lname": "Guanyu",
+        "country": "China",
+        "team": "Sauber"
+    },
+
+    "hul": {
+        "dno": "27",
+        "fname": "Nico",
+        "lname": "Hulkenberg",
+        "country": "Germany",
+        "team": "Haas"
+    },
+
+    "mag": {
+        "dno": "20",
+        "fname": "Kevin",
+        "lname": "Magnussen",
+        "country": "Denmark",
+        "team": "Haas"
+    }
+
+}
