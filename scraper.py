@@ -1,16 +1,20 @@
-import requests
-from bs4 import BeautifulSoup
-import json
+import requests # for managing requests
+from bs4 import BeautifulSoup # for webscraping
+import json # reading and writing json files
 # check current date in indian standard time
-from datetime import datetime
-import pytz
+from datetime import datetime # current date and time
+import pytz # timezones
 
+# gathers date and time, round checks current round of the season
+# corresponding to current date
 round = 1
 current_datetime = datetime.now()
 
+# has urls for each round of the season
 with open('data/urls.json', 'r') as file:
     f1_results_url = json.load(file)
 
+# returns the newest round of the season or 0 if the season has ended
 def check_date():
     global round
     while True:
@@ -18,38 +22,52 @@ def check_date():
             break
         if current_datetime > datetime.strptime(f1_results_url[f"rnd{round}"]["checkDate"],  "%Y-%m-%d"):
             round += 1
-            print(round)
         else:
-            print(datetime.strptime(f1_results_url[f"rnd{round}"]["checkDate"],  "%Y-%m-%d"))
+            print("Next round in: ",datetime.strptime(f1_results_url[f"rnd{round}"]["checkDate"],  "%Y-%m-%d"))
             break
     return int(round-1) if (1 < round < 24) else 0
 
 
-# URL of the webpage you want to scrape
-round_number = check_date()
-url = f1_results_url[f"rnd{round_number}"]["link"]
+def get_race_info():
+    # URL of the webpage you want to scrape
+    round_number = check_date()
+    print("Latest round: ", round_number)
 
-# Send an HTTP request to the URL
-response = requests.get(url)
-# Parse the HTML content
-soup = BeautifulSoup(response.text, 'html.parser')
+    # provides the list of drivers, their positions, points and teams TILL THE LATEST RACE
+    for i in range(1, round_number+1):
+        url = f1_results_url[f"rnd{i}"]["link"]
+
+        # Send an HTTP request to the URL
+        response = requests.get(url)
+        # Parse the HTML content
+        soup = BeautifulSoup(response.text, 'html.parser')
 
 
-cells = soup.find_all('tr')
-values = []
+        cells = soup.find_all('tr')
+        values = []
 
 
-for cell in cells:
-    bold_cell = cell.find('td', class_='bold')
-    # Append the text content of the cell to the list
-    if bold_cell:
-        values.append(cell.text.strip())
+        for cell in cells:
+            bold_cell = cell.find('td', class_='bold')
+            # Append the text content of the cell to the list
+            if bold_cell:
+                values.append(cell.text.strip())
 
-# Split the string into a list of strings
-driver_list = [driver.split('\n') for driver in values]
+        # Split the string into a list of strings
+        driver_list = [driver.split('\n') for driver in values]
 
-# get driver position and driver points from the list
-driver_positions = [driver[0] for driver in driver_list]
-driver_points = [driver[-1] for driver in driver_list]
-print(driver_positions)
-print(driver_points)
+        # get driver position and driver points from the list
+        driver_positions = [driver[0] for driver in driver_list]
+        driver_points = [driver[-1] for driver in driver_list]
+        driver_name = [driver[3] + ' ' + driver[4] for driver in driver_list]
+        driver_team = [driver[7] for driver in driver_list]
+        print(driver_positions)
+        print(driver_points)
+        print(driver_team)
+        print(driver_name)
+
+def main():
+    get_race_info()
+
+if __name__ == '__main__':
+    main()
