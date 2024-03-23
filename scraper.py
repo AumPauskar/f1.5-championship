@@ -29,9 +29,12 @@ def check_date():
 
 
 def get_race_info():
-    # deletes everything in the json file
-    with open('data/drivers-championship.json', 'w') as f:
-        json.dump("",f)
+    # Load the previous json data
+    with open('data/drivers-championship.json', 'r') as f:
+        try:
+            previous_data = json.load(f)
+        except json.JSONDecodeError:
+            previous_data = {}
 
     # URL of the webpage you want to scrape
     round_number = check_date()
@@ -46,10 +49,8 @@ def get_race_info():
         # Parse the HTML content
         soup = BeautifulSoup(response.text, 'html.parser')
 
-
         cells = soup.find_all('tr')
         values = []
-
 
         for cell in cells:
             bold_cell = cell.find('td', class_='bold')
@@ -62,15 +63,10 @@ def get_race_info():
 
         # get driver position and driver points from the list
         driver_positions = [driver[0] for driver in driver_list]
-        driver_points = [driver[-1] for driver in driver_list]
+        # driver_points = [driver[-1] for driver in driver_list]
         driver_name = [driver[3] + ' ' + driver[4] for driver in driver_list]
-        driver_team = [driver[7] for driver in driver_list]
-        # print(driver_positions)
-        # print(driver_points)
-        # print(driver_team)
-        # print(driver_name)
+        # driver_team = [driver[7] for driver in driver_list]
 
-        # ☢️☢️☢️ UNTESTED CODE ☢️☢️☢️
         # Create a dictionary to hold the data
         data = {f"rnd{i}": {}}
 
@@ -78,9 +74,12 @@ def get_race_info():
         for position, driver_name in zip(driver_positions, driver_name):
             data[f"rnd{i}"][position] = driver_name
 
-        # Write the dictionary to a JSON file
-        with open('data/drivers-championship.json', 'a') as f:
-            json.dump(data, f)
+        # Append new data to the previous data
+        previous_data.update(data)
+
+    # Write the updated data to the JSON file
+    with open('data/drivers-championship.json', 'w') as f:
+        json.dump(previous_data, f)
 
 def main():
     get_race_info()
