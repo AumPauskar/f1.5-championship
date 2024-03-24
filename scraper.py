@@ -146,30 +146,32 @@ def write_race_data():
         except KeyError:
             pass
 
+    print(no_max)
+    print(round_number)
     # calculating points
-    for count in range(1, round_number+1):
-        for position in range(1, 11):
+    for count in range(0, round_number):
+        for position in range(0, 10):
             match position:
-                case 1: # winner
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 25
-                case 2: # runner up
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 18
-                case 3: # podium
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 15
+                case 0: # winner
+                    drivers_list[no_max[count][position]] += 25
+                case 1: # runner up
+                    drivers_list[no_max[count][position]] += 18
+                case 2: # podium
+                    drivers_list[no_max[count][position]] += 15
+                case 3:
+                    drivers_list[no_max[count][position]] += 12
                 case 4:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 12
+                    drivers_list[no_max[count][position]] += 10
                 case 5:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 10
+                    drivers_list[no_max[count][position]] += 8
                 case 6:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 8
+                    drivers_list[no_max[count][position]] += 6
                 case 7:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 6
+                    drivers_list[no_max[count][position]] += 4
                 case 8:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 4
+                    drivers_list[no_max[count][position]] += 2
                 case 9:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 2
-                case 10:
-                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 1
+                    drivers_list[no_max[count][position]] += 1
 
 
 
@@ -178,6 +180,7 @@ def write_race_data():
     # deep copy sorted_drivers into drivers_list
     drivers_list = sorted_drivers.copy()
     print(drivers_list)
+    return drivers_list
 
     # f1 with no red bull
     # for count in range(1, 24):
@@ -189,9 +192,17 @@ def write_race_data():
     #         break
     # print(no_redbull)
 
+def markdown_return_standings(drivers_list):
+    markdown = ""
+    for position, driver in enumerate(drivers_list, start=1):
+        markdown += f"{position}. {driver} - {drivers_list[driver]} points\n"
+    return markdown
+
 def main():
     # get_race_info()
-    write_race_data()
+    text=write_race_data()
+    print(markdown_return_standings(text))
+    
 
 if __name__ == '__main__':
     main()
