@@ -247,7 +247,7 @@ def write_race_data():
     print(drivers_list_no_redbull)
                     
 
-    return drivers_list_no_redbull
+    return drivers_list_no_max, drivers_list_no_redbull
 
     # f1 with no red bull
     # for count in range(1, 24):
@@ -259,16 +259,28 @@ def write_race_data():
     #         break
     # print(no_redbull)
 
-def markdown_return_standings(drivers_list_no_max):
-    markdown = ""
+def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull):
+    markdown = "Drivers' championship without Max Verstappen\n"
+
+    # formatting drivers championship without max verstappen
     for position, driver in enumerate(drivers_list_no_max, start=1):
         markdown += f"{position}. {driver} - {drivers_list_no_max[driver]} points\n"
+
+    markdown += "--------------------"
+    markdown += "\n\nDrivers' championship without Red Bull\n"
+
+    # formatting drivers championship without red bull drivers
+    for position, driver in enumerate(drivers_list_no_redbull, start=1):
+        markdown += f"{position}. {driver} - {drivers_list_no_redbull[driver]} points\n"
+
+    markdown += "--------------------"
+    markdown += "\n\nNote: Fastest lap points are not included in the standings\n"
     return markdown
 
 def main():
     # get_race_info()
-    text=write_race_data()
-    print(markdown_return_standings(text))
+    drivers_list_no_max, drivers_list_no_redbull = write_race_data()
+    print(markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull))
     
 
 if __name__ == '__main__':
