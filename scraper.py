@@ -97,7 +97,7 @@ def write_race_data():
 
 
 
-    drivers_list = {
+    drivers_list_no_max = {
         "Max Verstappen": 0,
         "Sergio Perez": 0,
         "Carlos Sainz": 0,
@@ -132,9 +132,10 @@ def write_race_data():
     #         break
 
     no_max = []
+    no_redbull = []
 
     round_number = check_date()
-    # f1 list with no max verstappen
+    # f1 list with no max verstappen 🦁1️⃣
     for count in range(1, round_number+1):
         round_results = []
         no_max.append(round_results)
@@ -146,41 +147,107 @@ def write_race_data():
         except KeyError:
             pass
 
-    print(no_max)
-    print(round_number)
     # calculating points
     for count in range(0, round_number):
         for position in range(0, 10):
             match position:
                 case 0: # winner
-                    drivers_list[no_max[count][position]] += 25
+                    drivers_list_no_max[no_max[count][position]] += 25
                 case 1: # runner up
-                    drivers_list[no_max[count][position]] += 18
+                    drivers_list_no_max[no_max[count][position]] += 18
                 case 2: # podium
-                    drivers_list[no_max[count][position]] += 15
+                    drivers_list_no_max[no_max[count][position]] += 15
                 case 3:
-                    drivers_list[no_max[count][position]] += 12
+                    drivers_list_no_max[no_max[count][position]] += 12
                 case 4:
-                    drivers_list[no_max[count][position]] += 10
+                    drivers_list_no_max[no_max[count][position]] += 10
                 case 5:
-                    drivers_list[no_max[count][position]] += 8
+                    drivers_list_no_max[no_max[count][position]] += 8
                 case 6:
-                    drivers_list[no_max[count][position]] += 6
+                    drivers_list_no_max[no_max[count][position]] += 6
                 case 7:
-                    drivers_list[no_max[count][position]] += 4
+                    drivers_list_no_max[no_max[count][position]] += 4
                 case 8:
-                    drivers_list[no_max[count][position]] += 2
+                    drivers_list_no_max[no_max[count][position]] += 2
                 case 9:
-                    drivers_list[no_max[count][position]] += 1
+                    drivers_list_no_max[no_max[count][position]] += 1
 
+    # sort dictionary `drivers_list_no_max` by value
+    sorted_drivers = dict(sorted(drivers_list_no_max.items(), key=lambda item: item[1], reverse=True))
+    # deep copy sorted_drivers into drivers_list_no_max
+    drivers_list_no_max = sorted_drivers.copy()
+    print(drivers_list_no_max)
 
+    # resetting the dictionary 0️⃣0️⃣0️⃣
+    drivers_list_no_redbull = {
+        "Max Verstappen": 0,
+        "Sergio Perez": 0,
+        "Carlos Sainz": 0,
+        "Charles Leclerc": 0,
+        "George Russell": 0,
+        "Lando Norris": 0,
+        "Lewis Hamilton": 0,
+        "Oscar Piastri": 0,
+        "Fernando Alonso": 0,
+        "Lance Stroll": 0,
+        "Zhou Guanyu": 0,
+        "Kevin Magnussen": 0,
+        "Daniel Ricciardo": 0,
+        "Yuki Tsunoda": 0,
+        "Alexander Albon": 0,
+        "Nico Hulkenberg": 0,
+        "Esteban Ocon": 0,
+        "Pierre Gasly": 0,
+        "Valtteri Bottas": 0,
+        "Logan Sargeant": 0,
+        "Oliver Bearman": 0
+    }
 
-    # sort dictionary `drivers_list` by value
-    sorted_drivers = dict(sorted(drivers_list.items(), key=lambda item: item[1], reverse=True))
-    # deep copy sorted_drivers into drivers_list
-    drivers_list = sorted_drivers.copy()
-    print(drivers_list)
-    return drivers_list
+    # f1 list with no red bull 1️⃣1️⃣🐂🐐1️⃣
+    for count in range(1, round_number+1):
+        round_results = []
+        no_redbull.append(round_results)
+        try:
+            for position in range(1, 21):
+                if (previous_data[f"rnd{count}"][f"{position}"]) not in ["Sergio Perez", "Max Verstappen"]:
+                    round_results.append(previous_data[f"rnd{count}"][f"{position}"])
+            print("\n\n")
+        except KeyError:
+            pass
+
+    # calculating points
+    for count in range(0, round_number):
+        for position in range(0, 10):
+            match position:
+                case 0: # winner
+                    drivers_list_no_redbull[no_redbull[count][position]] += 25
+                case 1: # runner up
+                    drivers_list_no_redbull[no_redbull[count][position]] += 18
+                case 2: # podium
+                    drivers_list_no_redbull[no_redbull[count][position]] += 15
+                case 3:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 12
+                case 4:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 10
+                case 5:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 8
+                case 6:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 6
+                case 7:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 4
+                case 8:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 2
+                case 9:
+                    drivers_list_no_redbull[no_redbull[count][position]] += 1
+
+    # sort dictionary `drivers_list_no_redbull` by value
+    sorted_drivers = dict(sorted(drivers_list_no_redbull.items(), key=lambda item: item[1], reverse=True))
+    # deep copy sorted_drivers into drivers_list_no_redbull
+    drivers_list_no_redbull = sorted_drivers.copy()
+    print(drivers_list_no_redbull)
+                    
+
+    return drivers_list_no_redbull
 
     # f1 with no red bull
     # for count in range(1, 24):
@@ -192,10 +259,10 @@ def write_race_data():
     #         break
     # print(no_redbull)
 
-def markdown_return_standings(drivers_list):
+def markdown_return_standings(drivers_list_no_max):
     markdown = ""
-    for position, driver in enumerate(drivers_list, start=1):
-        markdown += f"{position}. {driver} - {drivers_list[driver]} points\n"
+    for position, driver in enumerate(drivers_list_no_max, start=1):
+        markdown += f"{position}. {driver} - {drivers_list_no_max[driver]} points\n"
     return markdown
 
 def main():
