@@ -117,7 +117,8 @@ def write_race_data():
         "Esteban Ocon": 0,
         "Pierre Gasly": 0,
         "Valtteri Bottas": 0,
-        "Logan Sargeant": 0
+        "Logan Sargeant": 0,
+        "Oliver Bearman": 0
     }
 
 
@@ -131,22 +132,52 @@ def write_race_data():
     #         break
 
     no_max = []
-    print(previous_data[f"rnd{3}"][f"{6}"])
 
-    # f1 with no max verstappen
-    for count in range(1, 24):
+    round_number = check_date()
+    # f1 list with no max verstappen
+    for count in range(1, round_number+1):
+        round_results = []
+        no_max.append(round_results)
         try:
-            try:
-                for position in range(1, 21):
-                    if (previous_data[f"rnd{count}"][f"{position}"]) != "Max Verstappen":
-                        no_max.append(previous_data[f"rnd{count}"][f"{position}"])
-                print("\n\n")
-            except KeyError:
-                pass
+            for position in range(1, 21):
+                if (previous_data[f"rnd{count}"][f"{position}"]) != "Max Verstappen":
+                    round_results.append(previous_data[f"rnd{count}"][f"{position}"])
+            print("\n\n")
         except KeyError:
             pass
 
-    print(no_max)
+    # calculating points
+    for count in range(1, round_number+1):
+        for position in range(1, 11):
+            match position:
+                case 1: # winner
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 25
+                case 2: # runner up
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 18
+                case 3: # podium
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 15
+                case 4:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 12
+                case 5:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 10
+                case 6:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 8
+                case 7:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 6
+                case 8:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 4
+                case 9:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 2
+                case 10:
+                    drivers_list[previous_data[f"rnd{count}"][f"{position}"]] += 1
+
+
+
+    # sort dictionary `drivers_list` by value
+    sorted_drivers = dict(sorted(drivers_list.items(), key=lambda item: item[1], reverse=True))
+    # deep copy sorted_drivers into drivers_list
+    drivers_list = sorted_drivers.copy()
+    print(drivers_list)
 
     # f1 with no red bull
     # for count in range(1, 24):
