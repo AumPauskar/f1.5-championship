@@ -81,8 +81,86 @@ def get_race_info():
     with open('data/drivers-championship.json', 'w') as f:
         json.dump(previous_data, f, indent=4)
 
+def remove_by_value(dict, value):
+    keys_to_remove = [key for key, val in dict.items() if val == value]
+    for key in keys_to_remove:
+        dict.pop(key, None)
+
+def write_race_data():
+    # Load the previous json data
+    with open('data/drivers-championship.json', 'r') as f:
+        try:
+            previous_data = json.load(f)
+        except json.JSONDecodeError:
+            previous_data = {}
+
+
+
+
+    drivers_list = {
+        "Max Verstappen": 0,
+        "Sergio Perez": 0,
+        "Carlos Sainz": 0,
+        "Charles Leclerc": 0,
+        "George Russell": 0,
+        "Lando Norris": 0,
+        "Lewis Hamilton": 0,
+        "Oscar Piastri": 0,
+        "Fernando Alonso": 0,
+        "Lance Stroll": 0,
+        "Zhou Guanyu": 0,
+        "Kevin Magnussen": 0,
+        "Daniel Ricciardo": 0,
+        "Yuki Tsunoda": 0,
+        "Alexander Albon": 0,
+        "Nico Hulkenberg": 0,
+        "Esteban Ocon": 0,
+        "Pierre Gasly": 0,
+        "Valtteri Bottas": 0,
+        "Logan Sargeant": 0
+    }
+
+
+    # all drivers standings
+    # for count in range(1, 24):
+    #     try:
+    #         for position in range(1, 21):
+    #             print(previous_data[f"rnd{count}"][f"{position}"])
+    #         print("\n")
+    #     except KeyError:
+    #         break
+
+    no_max = []
+    print(previous_data[f"rnd{3}"][f"{6}"])
+
+    # f1 with no max verstappen
+    for count in range(1, 24):
+        try:
+            try:
+                for position in range(1, 21):
+                    if (previous_data[f"rnd{count}"][f"{position}"]) != "Max Verstappen":
+                        no_max.append(previous_data[f"rnd{count}"][f"{position}"])
+                print("\n\n")
+            except KeyError:
+                pass
+        except KeyError:
+            pass
+
+    print(no_max)
+
+    # f1 with no red bull
+    # for count in range(1, 24):
+    #     try:
+    #         for position in range(1, 21):
+    #             print(no_redbull[f"rnd{count}"][f"{position}"])
+    #         print("\n")
+    #     except KeyError:
+    #         break
+    # print(no_redbull)
+
 def main():
-    get_race_info()
+    # get_race_info()
+    write_race_data()
 
 if __name__ == '__main__':
     main()
