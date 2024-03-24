@@ -1,8 +1,4 @@
-# f1.5-championship
-
-A react based web application that displays the Formula 1 World Championship standings for the current season (ssshhh 🤫🤫🤫 probably except Max Verstappen 🦁 and Red Bull 🐐).
-
-## Installation
+# Installation
 The program is run and tested under the following
 - Node: v20.11.1
 - NPM: 10.2.4
@@ -10,7 +6,7 @@ The program is run and tested under the following
 - WSL 2
 - Ubuntu 22.04.4 LTS
 
-### Pre-requisites
+## Pre-requisites
 - Node.js
 - NPM
 - Python 3
@@ -30,7 +26,3 @@ cd f1.5-championship/
 ```bash
 pip install -r requirements.txt
 ```
-
-## Docs
-All the documentation are present under the `/docs` directory.
-1. [Installation](docs/installation.md)
