@@ -79,7 +79,7 @@ def get_race_info():
 
     # Write the updated data to the JSON file
     with open('data/drivers-championship.json', 'w') as f:
-        json.dump(previous_data, f)
+        json.dump(previous_data, f, indent=4)
 
 def main():
     get_race_info()
