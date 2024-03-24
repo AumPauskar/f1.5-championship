@@ -1,0 +1,21 @@
+{
+  "name": "f1.5-championship",
+  "version": "1.0.0",
+  "description": "A react based web application that displays the Formula 1 World Championship standings for the current season (ssshhh 🤫🤫🤫 probably except Max Verstappen 🦁 and Red Bull 🐐).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0"
+  }
+}
