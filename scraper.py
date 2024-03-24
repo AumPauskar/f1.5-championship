@@ -94,9 +94,6 @@ def write_race_data():
         except json.JSONDecodeError:
             previous_data = {}
 
-
-
-
     drivers_list_no_max = {
         "Max Verstappen": 0,
         "Sergio Perez": 0,
@@ -120,16 +117,6 @@ def write_race_data():
         "Logan Sargeant": 0,
         "Oliver Bearman": 0
     }
-
-
-    # all drivers standings
-    # for count in range(1, 24):
-    #     try:
-    #         for position in range(1, 21):
-    #             print(previous_data[f"rnd{count}"][f"{position}"])
-    #         print("\n")
-    #     except KeyError:
-    #         break
 
     no_max = []
     no_redbull = []
@@ -249,15 +236,6 @@ def write_race_data():
 
     return drivers_list_no_max, drivers_list_no_redbull
 
-    # f1 with no red bull
-    # for count in range(1, 24):
-    #     try:
-    #         for position in range(1, 21):
-    #             print(no_redbull[f"rnd{count}"][f"{position}"])
-    #         print("\n")
-    #     except KeyError:
-    #         break
-    # print(no_redbull)
 
 def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull):
     markdown = "Drivers' championship without Max Verstappen\n"
@@ -278,7 +256,7 @@ def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull):
     return markdown
 
 def main():
-    # get_race_info()
+    get_race_info()
     drivers_list_no_max, drivers_list_no_redbull = write_race_data()
     print(markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull))
     
