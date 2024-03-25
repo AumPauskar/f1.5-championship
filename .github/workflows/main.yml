@@ -38,7 +38,7 @@ jobs:
       # Installs all the dependencies for your project
       - name: Install dependencies
         run: |
-          npm ci
+          npm install
           npm install @material-ui/core @material-ui/icons --force
           npm install @emotion/react @emotion/styled --force
           npm install @material-ui/styles --force
