@@ -255,10 +255,19 @@ def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull):
     markdown += "\n\nNote: Fastest lap points are not included in the standings\n"
     return markdown
 
+def write_modified_data(no_max, no_redbull):
+    # write the data to a json file
+    with open('data/drivers-championship-no-max.json', 'w') as f:
+        json.dump(no_max, f, indent=4)
+
+    with open('data/drivers-championship-no-redbull.json', 'w') as f:
+        json.dump(no_redbull, f, indent=4)
+
 def main():
     get_race_info()
     drivers_list_no_max, drivers_list_no_redbull = write_race_data()
     print(markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull))
+    write_modified_data(drivers_list_no_max, drivers_list_no_redbull)
     
 
 if __name__ == '__main__':
