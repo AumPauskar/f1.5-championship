@@ -38,12 +38,14 @@ jobs:
       # Installs all the dependencies for your project
       - name: Install dependencies
         run: |
+          cd frontend
           npm install
           npm install @material-ui/core @material-ui/icons --force
           npm install @emotion/react @emotion/styled --force
           npm install @material-ui/styles --force
           npm install react@18.2.0
           npm install react-dom@18.2.0
+        working-directory: ./frontend
 
       # Runs the React application
       - name: Run React app
