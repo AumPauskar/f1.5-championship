@@ -257,10 +257,12 @@ def write_race_data():
     constructors_no_redbull["Sauber"] = drivers_list_no_redbull["Valtteri Bottas"] + drivers_list_no_redbull["Zhou Guanyu"]
     constructors_no_redbull["Haas"] = drivers_list_no_redbull["Nico Hulkenberg"] + drivers_list_no_redbull["Kevin Magnussen"]
 
-    return drivers_list_no_max, drivers_list_no_redbull, constructors_no_redbull
+    # sort dictionary `constructors_no_redbull` by value
+    constructors_list_no_redbull = dict(sorted(constructors_no_redbull.items(), key=lambda item: item[1], reverse=True))
+    return drivers_list_no_max, drivers_list_no_redbull, constructors_list_no_redbull
 
 
-def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull, constructors_no_redbull):
+def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull, constructors_list_no_redbull):
     markdown = "Drivers' championship without Max Verstappen\n"
 
     # formatting drivers championship without max verstappen
@@ -277,8 +279,8 @@ def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull, cons
     markdown += "--------------------"
     markdown += "\n\nConstructors' championship without Red Bull\n"
     # formatting drivers championship without red bull drivers
-    for position, constructor in enumerate(constructors_no_redbull, start=1):
-        markdown += f"{position}. {constructor} - {constructors_no_redbull[constructor]} points\n"
+    for position, constructor in enumerate(constructors_list_no_redbull, start=1):
+        markdown += f"{position}. {constructor} - {constructors_list_no_redbull[constructor]} points\n"
 
     markdown += "\n\nNote: Fastest lap points are not included in the standings\n"
     return markdown
