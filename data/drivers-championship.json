@@ -61,5 +61,25 @@
         "16": "Esteban Ocon",
         "17": "George Russell",
         "NC": "Max Verstappen"
+    },
+    "rnd4": {
+        "1": "Max Verstappen",
+        "2": "Sergio Perez",
+        "3": "Carlos Sainz",
+        "4": "Charles Leclerc",
+        "5": "Lando Norris",
+        "6": "Fernando Alonso",
+        "7": "George Russell",
+        "8": "Oscar Piastri",
+        "9": "Lewis Hamilton",
+        "10": "Yuki Tsunoda",
+        "11": "Nico Hulkenberg",
+        "12": "Lance Stroll",
+        "13": "Kevin Magnussen",
+        "14": "Valtteri Bottas",
+        "15": "Esteban Ocon",
+        "16": "Pierre Gasly",
+        "17": "Logan Sargeant",
+        "NC": "Alexander Albon"
     }
 }

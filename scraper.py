@@ -234,10 +234,33 @@ def write_race_data():
     print(drivers_list_no_redbull)
                     
 
-    return drivers_list_no_max, drivers_list_no_redbull
+    # for no red bull constructors
+    constructors_no_redbull = {
+        "Mercedes": 0,
+        "Ferrari": 0,
+        "McLaren": 0,
+        "Aston Martin": 0,
+        "Alpine": 0,
+        "Williams": 0,
+        "VCARB": 0,
+        "Sauber": 0,
+        "Haas": 0,
+        "Red Bull": 0
+    }
+    constructors_no_redbull["Mercedes"] = drivers_list_no_redbull["Lewis Hamilton"] + drivers_list_no_redbull["George Russell"]
+    constructors_no_redbull["Ferrari"] = drivers_list_no_redbull["Carlos Sainz"] + drivers_list_no_redbull["Charles Leclerc"] + drivers_list_no_redbull["Oliver Bearman"]
+    constructors_no_redbull["McLaren"] = drivers_list_no_redbull["Lando Norris"] + drivers_list_no_redbull["Oscar Piastri"]
+    constructors_no_redbull["Aston Martin"] = drivers_list_no_redbull["Fernando Alonso"] + drivers_list_no_redbull["Lance Stroll"]
+    constructors_no_redbull["Alpine"] = drivers_list_no_redbull["Pierre Gasly"] + drivers_list_no_redbull["Esteban Ocon"]
+    constructors_no_redbull["Williams"] = drivers_list_no_redbull["Alexander Albon"] + drivers_list_no_redbull["Logan Sargeant"]
+    constructors_no_redbull["VCARB"] = drivers_list_no_redbull["Yuki Tsunoda"] + drivers_list_no_redbull["Daniel Ricciardo"]
+    constructors_no_redbull["Sauber"] = drivers_list_no_redbull["Valtteri Bottas"] + drivers_list_no_redbull["Zhou Guanyu"]
+    constructors_no_redbull["Haas"] = drivers_list_no_redbull["Nico Hulkenberg"] + drivers_list_no_redbull["Kevin Magnussen"]
+
+    return drivers_list_no_max, drivers_list_no_redbull, constructors_no_redbull
 
 
-def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull):
+def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull, constructors_no_redbull):
     markdown = "Drivers' championship without Max Verstappen\n"
 
     # formatting drivers championship without max verstappen
@@ -252,6 +275,11 @@ def markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull):
         markdown += f"{position}. {driver} - {drivers_list_no_redbull[driver]} points\n"
 
     markdown += "--------------------"
+    markdown += "\n\nConstructors' championship without Red Bull\n"
+    # formatting drivers championship without red bull drivers
+    for position, constructor in enumerate(constructors_no_redbull, start=1):
+        markdown += f"{position}. {constructor} - {constructors_no_redbull[constructor]} points\n"
+
     markdown += "\n\nNote: Fastest lap points are not included in the standings\n"
     return markdown
 
@@ -265,8 +293,8 @@ def write_modified_data(no_max, no_redbull):
 
 def main():
     get_race_info()
-    drivers_list_no_max, drivers_list_no_redbull = write_race_data()
-    print(markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull))
+    drivers_list_no_max, drivers_list_no_redbull, constructors_list_no_redbull = write_race_data()
+    print(markdown_return_standings(drivers_list_no_max, drivers_list_no_redbull, constructors_list_no_redbull))
     write_modified_data(drivers_list_no_max, drivers_list_no_redbull)
     
 
